@@ -1,25 +1,37 @@
 require('./styles/index.scss')
-
 import helix from 'helix-js'
 import { h } from 'helix-js/dist/html'
 
-function index ({state, actions}) {
-  return (
-    <div>
-      Homepage {state.title}
-      <img src='./assets/architexture/21.jpg' />
-    </div>
-  )
-}
+import base from './pages/base'
+import index from './pages/index'
+import portfolio from './pages/portfolio'
 
 const app = helix({
   model: {
-    state: {
-      title: 'hey',
+    models: {
+      projects: {
+        state: {
+          projects: [
+            {
+              name: 'Architexture',
+            },
+          ],
+        },
+      },
+      project: {
+        state: {
+          images: [
+            {
+              src: '/assets/architexture/21.jpg',
+            },
+          ],
+        },
+      },
     },
   },
   routes: {
     '': index,
+    'portfolio': base(portfolio),
   },
 })
 
