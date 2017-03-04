@@ -4,7 +4,7 @@ import { h } from 'helix-js/dist/html'
 
 import base from './pages/base'
 import index from './pages/index'
-import portfolio from './pages/portfolio'
+import project from './pages/project'
 
 const app = helix({
   model: {
@@ -13,25 +13,45 @@ const app = helix({
         state: {
           projects: [
             {
-              name: 'Architexture',
+              name: 'portfolio',
+              images: [
+                {
+                  src: '/assets/architexture/21.jpg',
+                },
+              ],
+            },
+            {
+              name: 'architexture',
+              images: [
+                {
+                  src: '/assets/architexture/21.jpg',
+                },
+              ],
             },
           ],
         },
       },
       project: {
         state: {
-          images: [
-            {
-              src: '/assets/architexture/21.jpg',
-            },
-          ],
+          images: [],
+        },
+        reducers: {
+          receiveProject (state, project) {
+            return project
+          },
+        },
+        effects: {
+          getProject (state, actions, name) {
+            let project = state.projects.projects.find(proj => proj.name === name)
+            actions.project.receiveProject(project)
+          },
         },
       },
     },
   },
   routes: {
     '': index,
-    'portfolio': base(portfolio),
+    '/:project': project,
   },
 })
 
