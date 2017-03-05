@@ -4,10 +4,10 @@
   "description": "Portfolio site",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "budo ./src/index.tsx --live --pushstate --host=localhost --port=8888 --base=/ --serve=index.js -- -t [ babelify ] -t [ scssify ] -p [ tsify ]",
+    "dev": "budo ./src/index.ts --live --pushstate --host=localhost --port=8888 --base=/ --serve=index.js -- -t [ babelify ] -t [ scssify ] -p [ tsify ]",
     "dist": "tsc && npm run browserify && npm run minify && npm run assets",
     "assets": "cp -R assets dist && cp index.html dist/index.html",
-    "browserify": "browserify src/index.tsx -p [ tsify ] -t [ scssify ] -g babelify -g uglifyify -o dist/index.js",
+    "browserify": "browserify src/index.ts -p [ tsify ] -t [ scssify ] -g babelify -g uglifyify -o dist/index.js",
     "minify": "uglifyjs ./dist/index.js --compress --mangle -o ./dist/index.js"
   },
   "dependencies": {

@@ -1,10 +1,10 @@
-import { h } from 'helix-js/dist/html'
+import html from 'helix-js/dist/html'
 
 export default function ({state, actions}) {
-  return (
+  return html`
     <div>
-      Homepage {state.title}
+      Homepage
       <img src='./assets/architexture/21.jpg' />
     </div>
-  )
+  `
 }

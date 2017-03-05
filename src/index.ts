@@ -1,6 +1,5 @@
 require('./styles/index.scss')
 import helix from 'helix-js'
-import { h } from 'helix-js/dist/html'
 
 import base from './pages/base'
 import index from './pages/index'

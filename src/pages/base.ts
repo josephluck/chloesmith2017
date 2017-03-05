@@ -1,13 +1,13 @@
-import { h } from 'helix-js/dist/html'
+import html from 'helix-js/dist/html'
 
 import nav from '../components/nav'
 
 export default function (child) {
   return function ({state, prev, actions}) {
-    return (
+    return html`
       <div class='flex vh-100 vw-100 bg-near-white'>
         <div class='nav bg-white-95 shadow-medium'>
-          {nav({
+          ${nav({
             projects: state.projects.projects,
             currentProject: state.location.params.project,
             currentPath: state.location.pathname,
@@ -15,9 +15,9 @@ export default function (child) {
         </div>
 
         <div class='content'>
-          {child({state, prev, actions})}
+          ${child({state, prev, actions})}
         </div>
       </div>
-    )
+    `
   }
 }

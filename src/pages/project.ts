@@ -1,4 +1,4 @@
-import { h } from 'helix-js/dist/html'
+import html from 'helix-js/dist/html'
 
 import base from './base'
 import nav from '../components/nav'
@@ -17,12 +17,12 @@ export default {
   }) => {
     let project = state.project
 
-    return (
+    return html`
       <div class='projects-list'>
-        {project.images.map(image => (
-          <img src={image.src} class='mr2 shadow' />
-        ))}
+        ${project.images.map(image => html`
+          <img src=${image.src} class='mr2 shadow' />
+        `)}
       </div>
-    )
+    `
   }),
 }

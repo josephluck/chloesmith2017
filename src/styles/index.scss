@@ -6,7 +6,12 @@ body, html {
   padding: 0px;
   height: 0px;
   font-size: 20px;
-  font-family: 'Open Sans';
+  font-family: 'Hind';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 
 // Utils
@@ -21,6 +26,9 @@ body, html {
 }
 .bg-white-95 {
   background: rgba(255, 255, 255, 0.95);
+}
+.transition {
+  transition: all 0.2s ease-in-out;
 }
 
 .nav {
