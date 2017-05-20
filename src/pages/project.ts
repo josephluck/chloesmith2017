@@ -2,6 +2,7 @@ import { html } from 'helix-yo-yo'
 
 import base from './base'
 import nav from '../components/nav'
+import nextButton from '../components/next-button'
 
 export default {
   onEnter(state, prev, actions) {
@@ -16,9 +17,9 @@ export default {
     }
   },
   onLeave(state, prev, actions) {
-    actions.project.removeScrollListener()
+    actions.ui.removeScrollListener()
   },
-  view: base((state) => {
+  view: base((state, prev, actions) => {
     let project = state.project
 
     return html`
@@ -26,6 +27,19 @@ export default {
         ${project.images.map(image => html`
           <img src=${image.src} class='mr2 shadow' />
         `)}
+
+        <div class='fixed ma3' style='right: 0px; bottom: 0px;'>
+          ${state.project.buttonType === 'image'
+        ? nextButton({
+          label: 'Next Image',
+          onclick: actions.project.goToNextImage,
+        })
+        : nextButton({
+          label: 'Next Project',
+          onclick: actions.project.toToNextProject,
+        })
+      }
+        </div>
       </div>
     `
   }),

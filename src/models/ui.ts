@@ -1,14 +1,21 @@
-const scrollListener = (e) => {
+const scrollListener = (actions) => (e) => {
   const isVertical = e.deltaY !== 0
 
   if (isVertical) {
     const scrollContainer = document.querySelector('.js-scroll-container')
-    const scrollContainerWidth = scrollContainer.scrollWidth
+    const scrollContainerScrollWidth = scrollContainer.scrollWidth
     const windowWidth = window.innerWidth
-    if (scrollContainerWidth > windowWidth) {
+    if (scrollContainerScrollWidth > windowWidth) {
       const nextScrollPos = scrollContainer.scrollLeft - (e.deltaY * 2)
       scrollContainer.scrollLeft = nextScrollPos
       e.preventDefault()
+    }
+    const leftScrollPos = scrollContainer.scrollLeft + windowWidth
+    const isNearEnd = (leftScrollPos + 100) > scrollContainerScrollWidth
+    if (isNearEnd) {
+      actions.project.setButtonType('project')
+    } else {
+      actions.project.setButtonType('image')
     }
   }
 }
@@ -23,11 +30,11 @@ export default function () {
         scrollContainer.scrollLeft = 0
         scrollContainer.scrollTop = 0
       },
-      addScrollListener() {
-        window.addEventListener('mousewheel', scrollListener)
+      addScrollListener(state, actions) {
+        window.addEventListener('mousewheel', scrollListener(actions))
       },
-      removeScrollListener() {
-        window.removeEventListener('mousewheel', scrollListener)
+      removeScrollListener(state, actions) {
+        window.removeEventListener('mousewheel', scrollListener(actions))
       },
     },
   }
