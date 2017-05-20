@@ -6,11 +6,13 @@ import nav from '../components/nav'
 export default {
   onEnter(state, prev, actions) {
     actions.project.getProject(state.location.params.project)
-    actions.project.addScrollListener()
+    actions.ui.resetScrollPosition()
+    actions.ui.addScrollListener()
   },
   onUpdate(state, prev, actions) {
     if (state.location.params.project !== prev.location.params.project) {
       actions.project.getProject(state.location.params.project)
+      actions.ui.resetScrollPosition()
     }
   },
   onLeave(state, prev, actions) {

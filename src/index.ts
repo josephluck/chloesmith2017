@@ -1,12 +1,12 @@
 require('./styles/index.scss')
 import helix from 'helix-yo-yo'
 
-import base from './pages/base'
-import index from './pages/index'
-import project from './pages/project'
-import about from './pages/about'
+import indexPage from './pages/index'
+import projectPage from './pages/project'
+import aboutPage from './pages/about'
 import projectsModel from './models/projects'
 import projectModel from './models/project'
+import uiModel from './models/ui'
 
 const node = document.createElement('div')
 node.setAttribute('class', 'vh-100')
@@ -17,12 +17,13 @@ const app = helix({
     models: {
       projects: projectsModel(),
       project: projectModel(),
+      ui: uiModel(),
     },
   },
   routes: {
-    '': index,
-    '/about': about,
-    '/:project': project,
+    '': indexPage,
+    '/about': aboutPage,
+    '/:project': projectPage,
   },
   mount: node,
 })
