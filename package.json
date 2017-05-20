@@ -20,7 +20,7 @@
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
     "budo": "^9.4.7",
-    "helix-js": "file:../helix",
+    "helix-yo-yo": "1.1.0",
     "scssify": "^2.2.1",
     "tachyons": "^4.6.2",
     "tsify": "^3.0.1",

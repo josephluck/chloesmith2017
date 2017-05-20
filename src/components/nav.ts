@@ -1,4 +1,4 @@
-import html from 'helix-js/dist/html'
+import {html} from 'helix-yo-yo'
 
 export default function ({
   projects,

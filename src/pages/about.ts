@@ -1,4 +1,4 @@
-import html from 'helix-js/dist/html'
+import {html} from 'helix-yo-yo'
 
 import base from './base'
 
