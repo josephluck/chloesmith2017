@@ -25,10 +25,11 @@ export default function () {
     state: {},
     reducers: {},
     effects: {
-      resetScrollPosition() {
+      resetScrollPosition(state, actions) {
         const scrollContainer = document.querySelector('.js-scroll-container')
         scrollContainer.scrollLeft = 0
         scrollContainer.scrollTop = 0
+        actions.project.setButtonType('image')
       },
       addScrollListener(state, actions) {
         window.addEventListener('mousewheel', scrollListener(actions))

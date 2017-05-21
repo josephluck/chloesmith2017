@@ -1,5 +1,7 @@
 @import '../../node_modules/tachyons/css/tachyons.css';
 
+$mobile: 30em; // Matches tachyons
+
 body, html {
   width: 100%;
   height: 100%;
@@ -31,27 +33,38 @@ body, html {
   transition: all 0.2s ease-in-out;
 }
 
-.nav {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  width: 250px;
+
+// Mobile
+.desktop-nav {
+  display: none;
 }
 
-.content {
-  padding-left: 250px;
-  overflow-y: hidden;
-  overflow-x: auto;
-  flex: 1;
-}
-
-.projects-list {
-  white-space: nowrap;
-  height: 100vh;
-  img {
-    height: 100%;
-    width: auto;
-    max-width: none;
+// Desktop
+@media screen and (min-width: $mobile) {
+  .mobile-nav {
+    display: none;
+  }
+  .desktop-nav {
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 250px;
+  }
+  .content {
+    padding-left: 250px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    flex: 1;
+  }
+  .projects-list {
+    white-space: nowrap;
+    height: 100vh;
+    img {
+      height: 100%;
+      width: auto;
+      max-width: none;
+    }
   }
 }
