@@ -1,24 +1,4 @@
-const scrollListener = (actions) => (e) => {
-  const isVertical = e.deltaY !== 0
-
-  if (isVertical) {
-    const scrollContainer = document.querySelector('.js-scroll-container')
-    const scrollContainerScrollWidth = scrollContainer.scrollWidth
-    const windowWidth = window.innerWidth
-    if (scrollContainerScrollWidth > windowWidth) {
-      const nextScrollPos = scrollContainer.scrollLeft - (e.deltaY * 2)
-      scrollContainer.scrollLeft = nextScrollPos
-      e.preventDefault()
-    }
-    const leftScrollPos = scrollContainer.scrollLeft + windowWidth
-    const isNearEnd = (leftScrollPos + 100) > scrollContainerScrollWidth
-    if (isNearEnd) {
-      actions.project.setButtonType('project')
-    } else {
-      actions.project.setButtonType('image')
-    }
-  }
-}
+import * as utils from '../utils'
 
 export default function () {
   return {
@@ -26,16 +6,18 @@ export default function () {
     reducers: {},
     effects: {
       resetScrollPosition(state, actions) {
-        const scrollContainer = document.querySelector('.js-scroll-container')
-        scrollContainer.scrollLeft = 0
-        scrollContainer.scrollTop = 0
+        const container = document.querySelector('.js-scroll-container')
+        utils.smoothHorizontalScroll({
+          container,
+          target: 0,
+        })
         actions.project.setButtonType('image')
       },
       addScrollListener(state, actions) {
-        window.addEventListener('mousewheel', scrollListener(actions))
+        window.addEventListener('mousewheel', utils.scrollListener)
       },
       removeScrollListener(state, actions) {
-        window.removeEventListener('mousewheel', scrollListener(actions))
+        window.removeEventListener('mousewheel', utils.scrollListener)
       },
     },
   }

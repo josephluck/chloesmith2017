@@ -1,3 +1,5 @@
+import * as utils from '../utils'
+
 export default function () {
   return {
     state: {
@@ -16,14 +18,21 @@ export default function () {
     },
     effects: {
       getProject(state, actions, uuid) {
-        let project = state.projects.projects.find(project => project.uuid === uuid)
+        const project = state.projects.projects.find(project => project.uuid === uuid)
         actions.project.receiveProject(project)
       },
-      goToNextImage(state) {
-
-      },
-      toToNextProject(state) {
-
+      toNext(state, actions) {
+        const nextImgScrollPos = utils.getNextImageScrollPos()
+        if (nextImgScrollPos) {
+          const container = document.querySelector('.js-scroll-container')
+          // container.scrollLeft = nextImgScrollPos
+          utils.smoothHorizontalScroll({
+            container,
+            target: nextImgScrollPos,
+          })
+        } else {
+          actions.projects.toNext()
+        }
       },
     },
   }
