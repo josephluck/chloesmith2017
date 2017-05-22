@@ -33,7 +33,7 @@ export default {
           </div>
         `)}
 
-        <div class='fixed ma3 db-ns dn' style='right: 0px; bottom: 0px;'>
+        <div class='fixed ma3 db-ns dn z-5' style='right: 0px; bottom: 0px;'>
           ${nextButton({
         label: 'Next',
         onclick: actions.project.toNext,
