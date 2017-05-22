@@ -15,7 +15,7 @@ export default function (child) {
       })}
         </div>
         <div class='flex vh-100 vw-100 bg-near-white'>
-          <div class='js-nav-bar desktop-nav bg-white-95 shadow-medium'>
+          <div class='js-nav-bar desktop-nav bg-white-95 shadow-medium relative z-2'>
             ${desktopNav({
         projects: state.projects.projects,
         currentProject: state.location.params.project,
