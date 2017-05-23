@@ -2,6 +2,9 @@ export function getNextImageScrollPos(): number | null {
   const container = document.querySelector('.js-scroll-container')
   const navBar = document.querySelector('.js-nav-bar')
   const images = document.querySelectorAll('.js-image')
+  if (!container) {
+    return null
+  }
   const currentScrollPos = container.scrollLeft + navBar.clientWidth
   const nextImage = ([] as any).find.call(images, image => {
     return image.offsetLeft > currentScrollPos

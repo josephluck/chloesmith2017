@@ -23,6 +23,7 @@ const app = helix({
   routes: {
     '': indexPage,
     '/about': aboutPage,
+    '/contact': aboutPage,
     '/:project': projectPage,
   },
   mount: node,

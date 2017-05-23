@@ -14,7 +14,7 @@ export default function (child) {
         currentPath: state.location.pathname,
       })}
         </div>
-        <div class='flex vh-100 vw-100 bg-near-white'>
+        <div class='flex vh-100 vw-100 bg-near-white-ns'>
           <div class='js-nav-bar desktop-nav bg-white-95 shadow-medium relative z-5'>
             ${desktopNav({
         projects: state.projects.projects,

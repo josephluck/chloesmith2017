@@ -43,7 +43,15 @@ export default function ({
             href='/about'
             class=${linkClass('about')}
           >
-            About / Contact
+            About
+          </a>
+        </div>
+        <div class='mb3 f5'>
+          <a
+            href='/about'
+            class=${linkClass('contact')}
+          >
+            Contact
           </a>
         </div>
       </div>

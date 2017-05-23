@@ -11,10 +11,11 @@ export default function ({
       ${currentProject === uuid ? 'b--silver' : 'b--transparent'}
     `
   }
-  function linkClass(name) {
+  function linkClass(name, invert: boolean = false) {
     return `
       mid-gray no-underline bb transition
-      ${currentPath.includes(name) ? 'b--silver' : 'b--transparent'}
+      ${invert ? !currentPath.includes(name) ? 'b--silver' : 'b--transparent' : ''}
+      ${!invert ? currentPath.includes(name) ? 'b--silver' : 'b--transparent' : ''}
     `
   }
   return html`
@@ -29,11 +30,13 @@ export default function ({
 
       <div class='mid-gray f6'>
         <a
+          href='/'
+          class='mr1 ${linkClass('about', true)}'
+        >Portfolio</a>
+        <a
           href='/about'
-          class=${linkClass('about')}
-        >
-          About / Contact
-        </a>
+          class='ml1 ${linkClass('about')}'
+        >About</a>
       </div>
     </div>
   `

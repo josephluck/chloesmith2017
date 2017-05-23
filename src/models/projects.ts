@@ -44,9 +44,12 @@ export default function () {
     },
     effects: {
       toNext(state, actions) {
-        const currentProjectIndex = state.projects.projects.findIndex(project => {
-          return project.uuid === state.location.params.project
-        })
+        const currentProjectIndex = state.location.params.project
+          ? state.projects.projects.findIndex(project => {
+            return project.uuid === state.location.params.project
+          })
+          : 0
+
         const nextProjectIndex = currentProjectIndex === state.projects.projects.length - 1
           ? 0
           : currentProjectIndex + 1

@@ -1,10 +1,10 @@
-import {html} from 'helix-yo-yo'
+import { html } from 'helix-yo-yo'
 
-export default function ({state, actions}) {
-  return html`
-    <div>
-      Homepage
-      <img src='./assets/architexture/21.jpg' />
-    </div>
-  `
+export default {
+  onEnter(state, prev, send) {
+    send.project.toNext()
+  },
+  view() {
+    return html`<div></div>`
+  }
 }

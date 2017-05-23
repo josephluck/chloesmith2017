@@ -25,7 +25,6 @@ export default function () {
         const nextImgScrollPos = utils.getNextImageScrollPos()
         if (nextImgScrollPos) {
           const container = document.querySelector('.js-scroll-container')
-          // container.scrollLeft = nextImgScrollPos
           utils.smoothHorizontalScroll({
             container,
             target: nextImgScrollPos,

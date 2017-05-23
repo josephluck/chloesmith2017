@@ -33,6 +33,14 @@ export default {
           </div>
         `)}
 
+        <div class='tc mb2 dn-ns db'>
+          ${nextButton({
+        label: 'Next Project',
+        onclick: actions.projects.toNext,
+        className: '',
+      })}
+        </div>
+
         <div class='fixed ma3 db-ns dn z-5' style='right: 0px; bottom: 0px;'>
           ${nextButton({
         label: 'Next',
