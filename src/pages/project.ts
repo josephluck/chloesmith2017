@@ -23,7 +23,10 @@ export default {
     let project = state.project
 
     return html`
-      <div class='projects-list pa0-ns pa2'>
+      <div
+        id=${project.uuid}
+        class='projects-list pa0-ns pa2'
+      >
         ${project.images.map(img => html`
           <div class='h-100 w-auto dib pl2-ns mb0-ns mb1 js-image'>
             ${image({

@@ -4,7 +4,7 @@ export default function () {
       projects: [
         {
           uuid: 'asos',
-          name: 'Asos',
+          name: 'ASOS',
           images: [
             { src: '/assets/asos/1.jpg' },
             { src: '/assets/asos/2.jpg' },
@@ -21,16 +21,23 @@ export default function () {
           ],
         },
         {
-          uuid: 'pieced-together',
-          name: 'Pieced Together',
+          uuid: 'topshop',
+          name: 'Topshop',
           images: [
-            { src: '/assets/architexture/21.jpg' },
-            { src: '/assets/architexture/22.jpg' },
-            { src: '/assets/architexture/23.jpg' },
-            { src: '/assets/architexture/24.jpg' },
-            { src: '/assets/architexture/25.jpg' },
-            { src: '/assets/architexture/26.jpg' },
-            { src: '/assets/architexture/27.jpg' },
+            { src: '/assets/topshop/1.jpg' },
+            { src: '/assets/topshop/2.jpg' },
+            { src: '/assets/topshop/3.jpg' },
+            { src: '/assets/topshop/4.jpg' },
+            { src: '/assets/topshop/5.jpg' },
+            { src: '/assets/topshop/6.jpg' },
+          ],
+        },
+        {
+          uuid: 'miss-selfridge',
+          name: 'Miss Selfridge',
+          images: [
+            { src: '/assets/miss-selfridge/1.jpg' },
+            { src: '/assets/miss-selfridge/2.jpg' },
           ],
         },
       ],
@@ -41,13 +48,13 @@ export default function () {
           ? state.projects.projects.findIndex(project => {
             return project.uuid === state.location.params.project
           })
-          : 0
+          : -1
 
         const nextProjectIndex = currentProjectIndex === state.projects.projects.length - 1
           ? 0
           : currentProjectIndex + 1
 
-        if (currentProjectIndex >= 0) {
+        if (nextProjectIndex >= 0) {
           const nextProjectId = state.projects.projects[nextProjectIndex].uuid
           actions.location.set(`/${nextProjectId}`)
         }

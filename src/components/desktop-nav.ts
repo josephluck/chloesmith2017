@@ -25,10 +25,15 @@ export default function ({
       </div>
 
       <div class='ph3 mid-gray'>
-        <div class='mb2 b'>Portfolio</div>
+        <a
+          class='dib mb2 b mid-gray no-underline f6'
+          href='/${projects[0].uuid}'
+        >
+          Portfolio
+        </a>
         <div class='pl3 mb3'>
           ${projects.filter(project => project.uuid !== 'portfolio').map(project => html`
-            <div class='mb2 f7'>
+            <div class='mb2 pb1 f7'>
               <a
                 class=${projectClass(project.uuid)}
                 href=${`/${project.uuid}`}
@@ -38,20 +43,12 @@ export default function ({
             </div>
           `)}
         </div>
-        <div class='mb3 b'>
+        <div class='mb3 b f6'>
           <a
             href='/about'
             class=${linkClass('about')}
           >
-            About
-          </a>
-        </div>
-        <div class='mb3 b'>
-          <a
-            href='/contact'
-            class=${linkClass('contact')}
-          >
-            Contact
+            About & Contact
           </a>
         </div>
       </div>

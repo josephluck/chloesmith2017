@@ -9,7 +9,8 @@ export function getNextImageScrollPos(): number | null {
   const nextImage = ([] as any).find.call(images, image => {
     return image.offsetLeft > currentScrollPos
   })
-  if (nextImage) {
+  const hasRoom = container.scrollLeft + container.clientWidth !== container.scrollWidth
+  if (nextImage && hasRoom) {
     return nextImage.offsetLeft - navBar.clientWidth
   } else {
     return null
