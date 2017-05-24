@@ -1,4 +1,4 @@
-import { html } from 'helix-yo-yo'
+import html from 'helix-yo-yo/lib/html'
 
 export default function ({
   projects,
@@ -13,16 +13,16 @@ export default function ({
   }
   function linkClass(name, invert: boolean = false) {
     return `
-      mid-gray no-underline bb transition
+      mid-gray no-underline bb bw-small transition
       ${invert ? !currentPath.includes(name) ? 'b--silver' : 'b--transparent' : ''}
       ${!invert ? currentPath.includes(name) ? 'b--silver' : 'b--transparent' : ''}
     `
   }
   return html`
-    <div class='tc ttu tracked serif mb3'>
+    <div class='tc ttu tracked mb3'>
       <a
         href='/'
-        class='ba bw2 pv2 b--black ph3 f4 serif ma3 db bg-white no-underline black'
+        class='ba bw2 pv2 b--black f4 serif ma3 db bg-white no-underline black'
       >
         <span class='mr2'>Chloe</span>
         <span>Smith</span>

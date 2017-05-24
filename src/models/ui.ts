@@ -7,6 +7,8 @@ export default function () {
     effects: {
       resetScrollPosition(state, actions) {
         const container = document.querySelector('.js-scroll-container')
+        container.scrollTop = 0
+        document.querySelector('body').scrollTop = 0
         utils.smoothHorizontalScroll({
           container,
           target: 0,

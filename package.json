@@ -5,10 +5,12 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "budo ./src/index.ts --live --pushstate --host=localhost --port=8888 --base=/ --serve=index.js -- -t [ babelify ] -t [ scssify ] -p [ tsify ]",
-    "dist": "tsc && npm run browserify && npm run minify && npm run assets",
-    "assets": "cp -R assets dist && cp index.html dist/index.html",
-    "browserify": "browserify src/index.ts -p [ tsify ] -t [ scssify ] -g babelify -g uglifyify -o dist/index.js",
-    "minify": "uglifyjs ./dist/index.js --compress --mangle -o ./dist/index.js"
+    "dist": "npm run browserify && npm run minify && npm run sass && npm run assets",
+    "sass": "node-sass --include-path scss src/styles/index.scss dist/assets/styles.css",
+    "assets": "cp -R assets dist && cp dist.html dist/index.html && cp dist.html dist/200.html && cp dist.html dist/404.html",
+    "browserify": "browserify src/index.ts -p [ tsify ] -t [ scssify ] -g babelify -o dist/assets/index.js",
+    "minify": "uglifyjs ./dist/assets/index.js --compress --mangle -o ./dist/assets/index.js",
+    "deploy": "npm run dist && surge ./dist chloesmith.org"
   },
   "dependencies": {
     "@types/node": "^7.0.5",
@@ -21,15 +23,17 @@
     "browserify": "^14.1.0",
     "budo": "^9.4.7",
     "eases": "^1.0.8",
-    "helix-yo-yo": "1.1.0",
+    "express": "^4.15.3",
+    "helix-yo-yo": "1.2.0",
     "scssify": "^2.2.1",
+    "surge": "^0.19.0",
     "tachyons": "^4.6.2",
     "tsify": "^3.0.1",
     "tslint": "^4.4.2",
     "tslint-config-standard": "^4.0.0",
     "typescript": "^2.2.1",
-    "uglifyify": "^3.0.4",
-    "uglifyjs": "^2.4.10"
+    "uglify-js": "^3.0.11",
+    "uglifyify": "^3.0.4"
   },
   "author": "",
   "license": "ISC"

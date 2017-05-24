@@ -1,4 +1,4 @@
-import { html } from 'helix-yo-yo'
+import html from 'helix-yo-yo/lib/html'
 
 export default function ({
   src,
@@ -9,7 +9,7 @@ export default function ({
       <img
         src=${src}
         className='relative z-2 ${className}'
-        style='min-width: 250px;'
+        style='min-width: 200px;'
       />
       <div class="loading">
         <div class="loading-indicator white relative z-1 serif">

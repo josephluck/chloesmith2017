@@ -1,6 +1,15 @@
-@import '../../node_modules/tachyons/css/tachyons.css';
-
 $mobile: 30em; // Matches tachyons
+
+@font-face {
+  font-family: "Apercu Light";
+  src: url(/assets/fonts/apercu-light-webfont.ttf);
+}
+
+@font-face {
+  font-family: "Apercu Bold";
+  src: url(/assets/fonts/apercu-bold-webfont.ttf);
+  // font-weight: bold;
+}
 
 body, html {
   width: 100%;
@@ -8,12 +17,21 @@ body, html {
   padding: 0px;
   height: 0px;
   font-size: 20px;
-  font-family: 'Hind';
+  font-family: 'Apercu Light';
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+
+button {
+  font-family: 'Apercu Light';
+  outline: none;
+}
+
+strong {
+  font-family: 'Apercu Bold'
 }
 
 // Utils
@@ -34,6 +52,9 @@ body, html {
 }
 .f7 {
   font-size: 0.7rem;
+}
+.bw-small {
+  border-width: 2px;
 }
 
 

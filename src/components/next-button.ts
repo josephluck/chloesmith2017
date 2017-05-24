@@ -1,4 +1,4 @@
-import { html } from 'helix-yo-yo'
+import html from 'helix-yo-yo/lib/html'
 
 export default function ({
   label,
@@ -7,8 +7,7 @@ export default function ({
 }) {
   return html`
     <button
-      class='ttu f6 dib ba b--black pv2 ph3 bg-white-95 serif ${className}'
-      style='border-width: 2px;'
+      class='f6 dib ba b--black pv2 ph3 bg-white-95 ttu shadow ${className}'
       onclick=${onclick}
     >
       ${label}

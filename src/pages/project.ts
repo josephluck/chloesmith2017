@@ -1,4 +1,4 @@
-import { html } from 'helix-yo-yo'
+import html from 'helix-yo-yo/lib/html'
 
 import base from './base'
 import nextButton from '../components/next-button'

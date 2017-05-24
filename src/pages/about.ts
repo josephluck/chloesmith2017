@@ -1,16 +1,41 @@
-import { html } from 'helix-yo-yo'
+import html from 'helix-yo-yo/lib/html'
 
 import base from './base'
+import list from '../components/list'
 
 export default {
-  view: base(({
+  view: base((
     state,
-  }) => {
+  ) => {
     return html`
-      <div class='ml2-ns h-100 shadow-ns bg-white pv4-ns pb4 ph3 lh-copy f6 mid-gray mw6'>
-        <p class='ma0 pb3'>Born and raised in the English countryside, Chloe Smith graduated from Ravensbourne in 2015 with a BA Honours in Fashion Design and specialised in womenswear design. </p>
-        <p class='ma0 pb3'>A signature style of sharp tailoring, structured and classical design is displayed in Chloe’s work. Her design philosophy is based on creating garments that will stand the test of time. </p>
-        <p class='ma0 pb3'>Before studying for her BA, Chloe studied for a Foundation Diploma in Art and Design (where she specialised in Fashion and Textiles) and passed with Distinction. During her studies, Chloe has carried out a wide variety of internships and work placements, which have all provided her with her invaluable insights into the fashion industry.</p>
+      <div class='ml2-ns h-100 shadow-ns bg-white pv4-ns pb4 ph3 lh-copy f6 mid-gray mw6 overflow-auto'>
+        <p class='ma0 pb3'>
+          I'm a womenswear fashion designer based in London. I enjoy working for high-pace, fashion forward high-street brands.
+        </p>
+        ${list({
+          title: 'Employment',
+          items: state.about.employment,
+          className: 'ma0 pb3',
+        })}
+        ${list({
+          title: 'Internships',
+          items: state.about.internships,
+          className: 'ma0 pb3',
+        })}
+        ${list({
+          title: 'Education',
+          items: state.about.education,
+          className: 'ma0 pb2',
+        })}
+        <p class='ma0 pb3 tl-ns tc'>
+          <a
+            href='/assets/chloe-smith-cv.pdf'
+            target='_blank'
+            class='no-underline blue'
+          >
+            Download CV
+          </a>
+        </p>
         <div class='tc tl-ns mb3'>
           <a
             href='https://instagram.com/chloe_smith_london/'

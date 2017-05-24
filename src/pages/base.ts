@@ -1,4 +1,4 @@
-import { html } from 'helix-yo-yo'
+import html from 'helix-yo-yo/lib/html'
 
 import desktopNav from '../components/desktop-nav'
 import mobileNav from '../components/mobile-nav'

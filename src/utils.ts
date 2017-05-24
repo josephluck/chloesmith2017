@@ -44,7 +44,7 @@ export function smoothHorizontalScroll({
 
   tween(container.scrollLeft, target, duration, ease)
   window.setTimeout(() => {
-    container.scrollLeft = target
+    container.scrollLeft = target + 1
   }, duration + 100)
 }
 
