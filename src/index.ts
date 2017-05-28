@@ -1,4 +1,5 @@
 require('./styles/index.scss')
+require('viewport-units-buggyfill').init()
 import helix from 'helix-yo-yo'
 
 import indexPage from './pages/index'
@@ -10,7 +11,6 @@ import aboutModel from './models/about'
 import uiModel from './models/ui'
 
 const node = document.createElement('div')
-node.setAttribute('class', 'vh-100')
 document.body.appendChild(node)
 
 const app = helix({

@@ -60,6 +60,13 @@ strong {
   flex: 1;
 }
 
+// Hacky solution to fix ipad height on desktop resolution
+@media screen and (min-width: $mobile) {
+  .fix-vertical-image-height {
+    height: 100vh;
+    content: 'viewport-units-buggyfill; height: 100vh;';
+  }
+}
 
 // Mobile
 .desktop-nav {

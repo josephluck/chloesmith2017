@@ -28,7 +28,7 @@ export default {
         class='projects-list pa0-ns pa2'
       >
         ${project.images.map(img => html`
-          <div class='h-100 w-auto dib pl2-ns mb0-ns mb1 js-image'>
+          <div class='h-100 w-auto dib pl2-ns mb0-ns mb1 js-image fix-vertical-image-height'>
             ${image({
           src: img.src,
           className: 'shadow',
