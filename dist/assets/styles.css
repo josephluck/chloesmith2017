@@ -50,6 +50,11 @@ strong {
 .flex-1 {
   flex: 1; }
 
+@media screen and (min-width: 30em) {
+  .fix-vertical-image-height {
+    height: 100vh;
+    content: 'viewport-units-buggyfill; height: 100vh;'; } }
+
 .desktop-nav {
   display: none; }
 
